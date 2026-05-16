@@ -4,16 +4,46 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
+    <!-- Beranda -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.utama.tugas5.HomeFragment"
         android:label="Beranda" />
 
+    <!-- Data Hujan -->
     <fragment
         android:id="@+id/listFragment"
         android:name="com.utama.tugas5.ListFragment"
-        android:label="Data Hujan" />
+        android:label="Data Hujan">
+        <action
+            android:id="@+id/action_list_to_form"
+            app:destination="@id/formFragment" />
+    </fragment>
 
+    <!-- Form Tambah/Edit (tidak ada di BottomNav) -->
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="com.utama.tugas5.FormFragment"
+        android:label="Form Data Hujan">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="tanggal"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="kondisi"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="curah"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <!-- Profil -->
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.utama.tugas5.ProfileFragment"
